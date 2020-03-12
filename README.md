@@ -74,3 +74,10 @@ It is based on the docker image atlassian-jira-software:7.13.0 from cptactionhan
 If you need more information feel free to contact us 
 
 [https://froso.de](https://froso.de)
+
+
+TODO:
+
+1. Remove DEBUG level for Logging 
+2. Increase Memory , cache
+

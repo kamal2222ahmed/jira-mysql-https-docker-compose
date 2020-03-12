@@ -1,0 +1,19 @@
+2020-02-28 14:56:19,111 http-nio-8080-exec-2 anonymous 896x2x1 - 172.26.0.1 /secure/errors.jsp HttpSession created [1abg15d]
+2020-02-28 15:07:13,769 JIRA-Bootstrap      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2020-02-28 15:35:23,895 http-nio-8080-exec-2 anonymous 935x2x1 - 172.26.0.1 /secure/SetupMode!default.jspa HttpSession created [qsdc5h]
+2020-02-28 15:42:35,896 http-nio-8080-exec-25 anonymous 942x97x4 - 172.26.0.1 /osd.jsp HttpSession created [1580jv7]
+2020-02-28 15:44:06,442 http-nio-8080-exec-1      HttpSession [1580jv7] destroyed for 'anonymous'
+2020-02-28 15:44:06,452 http-nio-8080-exec-1 anonymous 944x146x7 - 172.26.0.1 /osd.jsp HttpSession created [cejelr]
+2020-02-28 15:45:26,797 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [cejelr] destroyed for 'anonymous'
+2020-02-28 17:03:28,151 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [qsdc5h] destroyed for 'admin'
+2020-03-12 04:18:46,139 JIRA-Bootstrap      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2020-03-12 05:02:52,470 http-nio-8080-exec-1      HttpSession created [11tjmqs]
+2020-03-12 05:03:29,931 JIRA-Bootstrap      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2020-03-12 05:05:04,400 http-nio-8080-exec-10 anonymous 305x28x3 - 172.26.0.1 /osd.jsp HttpSession created [e1vmzg]
+2020-03-12 05:05:56,465 http-nio-8080-exec-25 anonymous 305x36x1 11tjmqs 172.26.0.1 /rest/gadget/1.0/login HttpSession [11tjmqs] destroyed for 'anonymous'
+2020-03-12 05:05:56,467 http-nio-8080-exec-25 anonymous 305x36x1 11tjmqs 172.26.0.1 /rest/gadget/1.0/login HttpSession created [1210kg1]
+2020-03-12 05:05:56,566 http-nio-8080-exec-25 admin 305x36x1 11tjmqs 172.26.0.1 /rest/gadget/1.0/login The user 'admin' has PASSED authentication.
+2020-03-12 05:06:05,982 http-nio-8080-exec-4      HttpSession [e1vmzg] destroyed for 'anonymous'
+2020-03-12 05:06:05,991 http-nio-8080-exec-4 anonymous 306x63x6 - 172.26.0.1 /osd.jsp HttpSession created [1fw5kj9]
+2020-03-12 05:07:57,552 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1fw5kj9] destroyed for 'anonymous'
+2020-03-12 10:07:05,752 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1210kg1] destroyed for 'admin'

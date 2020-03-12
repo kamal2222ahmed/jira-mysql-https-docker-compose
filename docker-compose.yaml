@@ -5,65 +5,43 @@ services:
     depends_on:
       - mysql
     container_name: jira
-    restart: always
+    restart: "no"
     image: cptactionhank/atlassian-jira-software:7.13.0
     environment:
-      - VIRTUAL_HOST=${JIRA_HOST}
-      - LETSENCRYPT_HOST=${JIRA_HOST}
-      - LETSENCRYPT_EMAIL=${JIRA_EMAIL}
+      - VIRTUAL_HOST=localhost
+      - LETSENCRYPT_HOST=localhost
+      - LETSENCRYPT_EMAIL=admin@jira.example.com
+    deploy:
+      resources:
+        limits:
+          cpus: '1.001'
+          memory: 1G
+        reservations:
+          cpus: '1.0001'
+          memory: 2G
     ports:
       - '8080:8080'
     volumes:
-      - jira-data:/var/atlassian/jira  # JIRA_HOME
+      - ./jira-data:/var/atlassian/jira  # JIRA_HOME
       - ./dbconfig.xml:/var/atlassian/jira/dbconfig.xml
+      - ./var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       jira-network:
 
   mysql:
     container_name: mysql
-    restart: always
+    restart: "no"
     image: mysql:5
     environment:
-      - NETWORK_ACCESS=internal
-    environment:
-      - MYSQL_ROOT_PASSWORD=${JIRA_MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${JIRA_MYSQL_DATABASE}          # this database will be created on image startup
-      - MYSQL_USER=${JIRA_MYSQL_USER}               # this user will be granted superuser permissions on MYSQL_DATABASE
-      - MYSQL_PASSWORD=${JIRA_MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=supersecret
+      - MYSQL_DATABASE=jiradb          # this database will be created on image startup
+      - MYSQL_USER=jiradbuser               # this user will be granted superuser permissions on MYSQL_DATABASE
+      - MYSQL_PASSWORD=12345
+      - MYSQL_ROOT_HOST=% 
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./mysql-data:/var/lib/mysql
     networks:
       jira-network:
-
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    labels:
-      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - nginx-vhost.d:/etc/nginx/vhost.d
-      - nginx-vhost.d:/usr/share/nginx/html
-      - nginx-certs:/etc/nginx/certs:ro
-    networks:
-      - jira-network
-    restart: always  
-
-  letsencrypt:
-    container_name: letsencrypt
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - nginx-certs:/etc/nginx/certs:rw
-      - nginx-vhost.d:/etc/nginx/vhost.d
-      - nginx-vhost.d:/usr/share/nginx/html
-    networks:
-      - jira-network
-    restart: always  
-
 
 networks:
   jira-network:
@@ -72,6 +50,3 @@ networks:
 volumes:
   jira-data:
   mysql-data:
-  nginx-vhost.d:
-  nginx-share.html:
-  nginx-certs:

@@ -7,8 +7,8 @@
   <jdbc-datasource>
     <url>jdbc:mysql://mysql:3306/jiradb?useUnicode=true&amp;characterEncoding=UTF8&amp;sessionVariables=default_storage_engine=InnoDB</url>
     <driver-class>com.mysql.jdbc.Driver</driver-class>
-    <username>JIRA_MYSQL_USER</username>
-    <password>JIRA_MYSQL_PASSWORD</password>
+    <username>jiradbuser</username>
+    <password>12345</password>
     <pool-min-size>20</pool-min-size>
     <pool-max-size>20</pool-max-size>
     <pool-max-wait>30000</pool-max-wait>
